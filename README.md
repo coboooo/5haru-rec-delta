@@ -1,16 +1,32 @@
-# React + Vite
+# 하루 기록 델타
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+React와 Firebase로 만든 하루 기록 델타 버전이야.
 
-Currently, two official plugins are available:
+## 현재 기능
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Google 소셜 로그인과 로그아웃
+- 사용자 계정별 실시간 기록 저장·조회·삭제
+- Firebase Realtime Database 보안 규칙
+- Vercel 프로덕션 배포
 
-## React Compiler
+## 로컬 실행
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+npm install
+npm run dev
+```
 
-## Expanding the Oxlint configuration
+Firebase 웹 앱 연결 정보는 `src/firebase.js`에서 관리해. 이 설정값은 Firebase 웹 클라이언트가 사용하는 공개 식별 정보이며, 데이터 접근 권한은 `database.rules.json`에서 제한해.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## 확인 명령
+
+```bash
+npm run lint
+npm run build
+```
+
+## Firebase 규칙 배포
+
+```bash
+npx firebase-tools deploy --only database
+```
